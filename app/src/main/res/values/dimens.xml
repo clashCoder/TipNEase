@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="bill_row_margin">12dp</dimen>
+    <dimen name="total_row_margin">18dp</dimen>
+
+    <dimen name="label_font_size">14sp</dimen>
+    <dimen name="hint_font_size">14sp</dimen>
+
+</resources>

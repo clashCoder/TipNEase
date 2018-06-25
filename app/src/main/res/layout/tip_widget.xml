@@ -1,0 +1,251 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#87CEEB"
+    android:padding="@dimen/widget_margin">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bill_row_margin"
+            android:layout_marginBottom="@dimen/bill_row_margin"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/bill_label_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@string/label_weight"
+                android:text="@string/bill_label_text"
+                tools:text="Bill : " />
+            <Button
+                android:id="@+id/bill_decrement_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/decrement_btn_text"
+                tools:text="-" />
+            <TextView
+                android:id="@+id/bill_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@color/colorResult"
+                android:text="@string/bill_default_text" />
+            <Button
+                android:id="@+id/bill_increment_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/increment_btn_text"
+                tools:text="+" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bill_row_margin"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tip_pct_label_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@string/label_weight"
+                android:text="@string/tip_pct_label_text"
+                tools:text="Tip % : " />
+            <Button
+                android:id="@+id/tip_pct_decrement_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/decrement_btn_text"
+                tools:text="-" />
+            <TextView
+                android:id="@+id/tip_pct_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@color/colorResult"
+                android:text="@string/tip_pct_default_text" />
+            <Button
+                android:id="@+id/tip_pct_increment_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/increment_btn_text"
+                tools:text="+" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bill_row_margin"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tip_label_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@string/label_weight"
+                android:text="@string/tip_label_text"
+                tools:text="Tip : " />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/tip_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@color/colorResult"
+                android:text="@string/tip_default_text"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bill_row_margin"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/total_label_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@string/label_weight"
+                android:text="@string/total_label_text"
+                tools:text="Total w/Tip : " />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/total_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@color/colorResult"
+                android:text="@string/total_default_text" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/bill_row_margin"
+            android:layout_marginBottom="@dimen/bill_row_margin"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/num_people_label_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@string/label_weight"
+                android:text="@string/num_people_label_text"
+                tools:text="# of people : " />
+            <Button
+                android:id="@+id/num_people_decrement_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/decrement_btn_text"
+                tools:text="-" />
+            <TextView
+                android:id="@+id/num_people_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@color/colorResult"
+                android:text="@string/num_people_default_text" />
+            <Button
+                android:id="@+id/num_people_increment_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/increment_btn_text"
+                tools:text="+" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/bill_row_margin"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/total_per_person_label_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@string/label_weight"
+                android:text="@string/total_per_person_label_text"
+                tools:text="Total/Person : " />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+            <TextView
+                android:id="@+id/total_per_person_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@color/colorResult"
+                android:text="@string/total_per_person_default_text" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/tip_per_person_label_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="@string/label_weight"
+                android:text="@string/tip_per_person_label_text"
+                tools:text="Tip/Person : " />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tip_per_person_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="@color/colorResult"
+                android:text="@string/tip_per_person_default_text" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

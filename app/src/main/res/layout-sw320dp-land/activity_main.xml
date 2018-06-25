@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tipBackground"
+    android:orientation="horizontal"
+    android:paddingBottom="15dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="15dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/bill_label_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/editLabelColor"
+                android:text="@string/bill_label_text"
+                tools:text="Bill Total: "/>
+
+            <EditText
+                android:id="@+id/bill_edit_main"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_border"
+                android:text="@string/bill_default_text"
+                android:textColor="@color/white"
+                android:inputType="numberDecimal"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tip_pct_label_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/editLabelColor"
+                android:text="@string/tip_label_text"
+                tools:text="Tip Percentage: "/>
+
+            <EditText
+                android:id="@+id/tip_pct_edit_main"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_border"
+                android:text="@string/tip_pct_default_text"
+                android:textColor="@color/white"
+                android:inputType="numberDecimal"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/num_people_label_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/editLabelColor"
+                android:text="@string/num_people_label_text"
+                tools:text="# of People: "/>
+
+            <EditText
+                android:id="@+id/num_people_edit_main"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@drawable/edit_border"
+                android:text="@string/num_people_default_text"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                android:inputType="number"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/white" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tip_total_label_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/nonEditLabelColor"
+                android:text="@string/tip_label_text"
+                tools:text="Tip Total:" />
+
+            <TextView
+                android:id="@+id/tip_total_main"
+                android:layout_width="0dp"
+                android:layout_height="37.5dp"
+                android:layout_weight="1"
+                android:text="@string/tip_default_text"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/non_edit_border"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/total_label_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/nonEditLabelColor"
+                android:text="@string/total_label_text"
+                tools:text="Total with Tip: "/>
+
+            <TextView
+                android:id="@+id/total_main"
+                android:layout_width="0dp"
+                android:layout_height="37.5dp"
+                android:layout_weight="1"
+                android:text="@string/tip_default_text"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/non_edit_border"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/total_per_person_label_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/nonEditLabelColor"
+                android:text="@string/total_per_person_label_text"
+                tools:text="Total Per Person: " />
+
+            <TextView
+                android:id="@+id/total_per_person_main"
+                android:layout_width="0dp"
+                android:layout_height="37.5dp"
+                android:layout_weight="1"
+                android:text="@string/bill_default_text"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/non_edit_border"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tip_per_person_label_main"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/nonEditLabelColor"
+                android:text="@string/tip_per_person_label_text"
+                tools:text="Tip Per Person: "/>
+
+            <TextView
+                android:id="@+id/tip_per_person_main"
+                android:layout_width="0dp"
+                android:layout_height="37.5dp"
+                android:layout_weight="1"
+                android:text="@string/bill_default_text"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/non_edit_border"
+                android:gravity="center" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

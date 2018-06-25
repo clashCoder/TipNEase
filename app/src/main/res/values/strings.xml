@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">TipNEase</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="bill_label_text">Bill Total :</string>
+    <string name="tip_pct_label_text">Tip Percentage :</string>
+    <string name="tip_label_text">Tip Total :</string>
+    <string name="total_label_text">Total with Tip :</string>
+    <string name="num_people_label_text"># of People :</string>
+    <string name="total_per_person_label_text">Total Per Person :</string>
+    <string name="tip_per_person_label_text">Tip Per Person :</string>
+    <string name="increment_btn_text">+</string>
+    <string name="decrement_btn_text">-</string>
+
+    <string name="bill_hint_text"><i>Enter bill amount</i></string>
+    <string name="tip_pct_hint_text"><i>Enter tip percentage</i></string>
+    <string name="num_people_hint_text"><i>Enter # of People</i></string>
+
+    <string name="label_weight">3</string>
+
+    <string name="bill_default_text">0.00</string>
+    <string name="tip_default_text">0.00</string>
+    <string name="tip_pct_default_text">0.00</string>
+    <string name="total_default_text">0.00</string>
+    <string name="num_people_default_text">0</string>
+    <string name="total_per_person_default_text">0.00</string>
+    <string name="tip_per_person_default_text">0.00</string>
+</resources>
