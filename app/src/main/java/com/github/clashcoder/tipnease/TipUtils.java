@@ -6,6 +6,15 @@ package com.github.clashcoder.tipnease;
 
 public class TipUtils {
 
+    public static final String SHARED_PREF_FILE = "com.github.clashcoder.tipnease";
+
+    public static final String BILL_TOTAL_KEY_MAIN = "bill_total_main";
+    public static final String TIP_PERCENTAGE_KEY_MAIN = "tip_percentage_main";
+    public static final String TIP_TOTAL_KEY_MAIN = "tip_total_main";
+    public static final String TOTAL_WITH_TIP_KEY_MAIN = "total_with_tip_main";
+    public static final String NUM_PEOPLE_KEY_MAIN = "num_people_main";
+    public static final String TOTAL_PER_PERSON_KEY_MAIN = "total_per_person_main";
+    public static final String TIP_PER_PERSON_KEY_MAIN = "tip_per_person_main";
 
     public static final String BILL_TOTAL_KEY = "bill_total";
     public static final String TIP_PERCENTAGE_KEY = "tip_percentage";

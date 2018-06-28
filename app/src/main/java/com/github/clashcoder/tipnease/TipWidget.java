@@ -200,7 +200,7 @@ public class TipWidget extends AppWidgetProvider {
     private static ArrayList<String> getPreferenceValues(Context context, Map<String, Float> sharedKeyValues) {
         ArrayList<String> prefValues = new ArrayList<>();
 
-        SharedPreferences sp = context.getSharedPreferences(SHARED_PREF_FILE, 0);
+        SharedPreferences sp = context.getSharedPreferences(TipUtils.SHARED_PREF_FILE, 0);
 
         float billTotal = sp.getFloat(TipUtils.BILL_TOTAL_KEY, 0.0f);
         float tipPercentage = sp.getFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.0f);
