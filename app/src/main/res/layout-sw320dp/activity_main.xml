@@ -38,7 +38,8 @@
             android:inputType="numberDecimal"
             android:textColor="@color/editLabelColor"
             android:textColorHint="#FFF"
-            android:textSize="@dimen/hint_font_size" />
+            android:textSize="@dimen/hint_font_size"
+            android:imeOptions="actionDone" />
 
     </LinearLayout>
 
@@ -66,7 +67,8 @@
             android:inputType="numberDecimal"
             android:textColor="#FFF"
             android:textColorHint="#FFF"
-            android:textSize="@dimen/hint_font_size" />
+            android:textSize="@dimen/hint_font_size"
+            android:imeOptions="actionDone" />
 
     </LinearLayout>
 
@@ -145,7 +147,8 @@
             android:inputType="number"
             android:textColor="#FFF"
             android:textColorHint="#FFF"
-            android:textSize="@dimen/hint_font_size" />
+            android:textSize="@dimen/hint_font_size"
+            android:imeOptions="actionDone" />
 
     </LinearLayout>
 

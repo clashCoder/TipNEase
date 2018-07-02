@@ -27,6 +27,7 @@ public class TipWidget extends AppWidgetProvider {
     private static final String DECREMENT_TIP_PERCENTAGE = "com.github.clashcoder.decrement_tip_percentage";
     private static final String INCREMENT_NUM_PEOPLE = "com.github.clashcoder.increment_num_people";
     private static final String DECREMENT_NUM_PEOPLE = "com.github.clashcoder.decrement_num_people";
+    private static final String REFRESH = "com.github.clashcoder.refresh";
 
 //    private static final String BILL_TOTAL_KEY = "bill_total";
 //    private static final String TIP_PERCENTAGE_KEY = "tip_percentage";
@@ -169,6 +170,10 @@ public class TipWidget extends AppWidgetProvider {
             } else {
                 prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, 1.0f);
             }
+        } else if (intent.getAction().equals(REFRESH)) {
+            prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, currentBill);
+            prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, currentTipPct);
+            prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, currentNumPeople);
         }
 
         prefEditor.commit();
@@ -247,6 +252,8 @@ public class TipWidget extends AppWidgetProvider {
         intent.setAction(DECREMENT_NUM_PEOPLE);
         remoteViews.setOnClickPendingIntent(R.id.num_people_decrement_btn, PendingIntent.getBroadcast(context, shifttedAppWidgetId + 5, intent, 0));
 
+        intent.setAction(REFRESH);
+        remoteViews.setOnClickPendingIntent(R.id.button_refresh, PendingIntent.getBroadcast(context, shifttedAppWidgetId + 6, intent, 0));
 
     }
 }
