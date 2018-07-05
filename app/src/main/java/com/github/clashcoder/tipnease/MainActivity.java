@@ -176,4 +176,27 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        billTotal = TipUtils.roundToTwoDecPlaces((double)sharedPreferences.getFloat(TipUtils.BILL_TOTAL_KEY_MAIN, 0.00f), 2);
+        tipPercentage = TipUtils.roundToTwoDecPlaces((double) sharedPreferences.getFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, 0.00f), 2);
+        numPeople = (int) sharedPreferences.getFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, 1.00f);
+
+        tipTotal = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTipTotal(billTotal, tipPercentage), 2);
+        grandTotal = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTotalWithTip(billTotal, tipPercentage), 2);
+        totalPerPerson = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTotalPerPerson(billTotal, tipPercentage, numPeople), 2);
+        tipPerPerson = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTipPerPerson(billTotal, tipPercentage, numPeople), 2);
+
+        binding.billEditMain.setText(String.format("%.2f", billTotal));
+        binding.tipPctEditMain.setText(String.format("%.2f", tipPercentage));
+        binding.numPeopleEditMain.setText(String.valueOf(numPeople));
+
+        binding.tipTotalMain.setText(String.format("%.2f", tipTotal));
+        binding.totalMain.setText(String.format("%.2f", grandTotal));
+        binding.totalPerPersonMain.setText(String.format("%.2f", totalPerPerson));
+        binding.tipPerPersonMain.setText(String.format("%.2f", tipPerPerson));
+    }
 }

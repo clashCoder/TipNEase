@@ -138,37 +138,46 @@ public class TipWidget extends AppWidgetProvider {
         if (intent.getAction().equals(INCREMENT_BILL_TOTAL)) {
 
             prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, currentBill + 0.01f);
+            prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY_MAIN, currentBill + 0.01f);
 
         } else if (intent.getAction().equals(DECREMENT_BILL_TOTAL)) {
 
             if (currentBill >= 0.01f) {
                 prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, currentBill - 0.01f);
+                prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY_MAIN, currentBill - 0.01f);
             } else {
-                prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, 0.0f);
+                prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, 0.00f);
+                prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY_MAIN, 0.00f);
             }
 
         } else if (intent.getAction().equals(INCREMENT_TIP_PERCENTAGE)) {
 
             prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, currentTipPct + 0.01f);
+            prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, currentTipPct + 0.01f);
 
         } else if (intent.getAction().equals(DECREMENT_TIP_PERCENTAGE)) {
 
             if (currentTipPct >= 0.01f) {
                 prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, currentTipPct - 0.01f);
+                prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, currentTipPct - 0.01f);
             } else {
-                prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.0f);
+                prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.00f);
+                prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, 0.00f);
             }
 
         } else if (intent.getAction().equals(INCREMENT_NUM_PEOPLE)) {
 
             prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, currentNumPeople + 1.0f);
+            prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, currentNumPeople + 1.0f);
 
         } else if (intent.getAction().equals(DECREMENT_NUM_PEOPLE)) {
 
             if (currentNumPeople >= 2.0f) {
                 prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, currentNumPeople - 1.0f);
+                prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, currentNumPeople - 1.0f);
             } else {
                 prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, 1.0f);
+                prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, 1.0f);
             }
         } else if (intent.getAction().equals(REFRESH)) {
             prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, currentBill);
