@@ -9,6 +9,8 @@ import android.text.TextWatcher;
 
 import com.github.clashcoder.tipnease.databinding.ActivityMainBinding;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 public class MainActivity extends AppCompatActivity {
 
     private ActivityMainBinding binding;
@@ -18,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private double tipPercentage;
     private double tipTotal;
     private double grandTotal;
-    private int numPeople;
+    private long numPeople;
     private double totalPerPerson;
     private double tipPerPerson;
 
@@ -29,33 +31,13 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getApplicationContext().getSharedPreferences(TipUtils.SHARED_PREF_FILE, 0);
         prefEditor = sharedPreferences.edit();
 
-        billTotal = TipUtils.roundToTwoDecPlaces((double)sharedPreferences.getFloat(TipUtils.BILL_TOTAL_KEY_MAIN, 0.00f), 2);
-        tipPercentage = TipUtils.roundToTwoDecPlaces((double) sharedPreferences.getFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, 0.00f), 2);
-        numPeople = (int) sharedPreferences.getFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, 1.00f);
-
-        //double tipTotal = TipUtils.roundToTwoDecPlaces((double) sharedPreferences.getFloat(TipUtils.TIP_TOTAL_KEY, 0.00f), 2);
-        //double grandTotal = TipUtils.roundToTwoDecPlaces((double) sharedPreferences.getFloat(TipUtils.TOTAL_WITH_TIP_KEY, 0.00f), 2);
-
-        tipTotal = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTipTotal(billTotal, tipPercentage), 2);
-        grandTotal = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTotalWithTip(billTotal, tipPercentage), 2);
-        totalPerPerson = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTotalPerPerson(billTotal, tipPercentage, numPeople), 2);
-        tipPerPerson = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTipPerPerson(billTotal, tipPercentage, numPeople), 2);
-
+        initializeValues();
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
 
-        binding.billEditMain.setText(String.format("%.2f", billTotal));
-        binding.tipPctEditMain.setText(String.format("%.2f", tipPercentage));
-        binding.numPeopleEditMain.setText(String.valueOf(numPeople));
+        bindValues();
 
-        binding.tipTotalMain.setText(String.format("%.2f", tipTotal));
-        binding.totalMain.setText(String.format("%.2f", grandTotal));
-        binding.totalPerPersonMain.setText(String.format("%.2f", totalPerPerson));
-        binding.tipPerPersonMain.setText(String.format("%.2f", tipPerPerson));
-
-        //prefEditor.clear();
         addTextListeners();
-        //setContentView(R.layout.activity_main);
         prefEditor.commit();
     }
 
@@ -79,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
                 String billTotalStr = editable.toString();
 
-                float prevBill = sharedPreferences.getFloat(TipUtils.BILL_TOTAL_KEY_MAIN, 0.00f);
+                //float prevBill = sharedPreferences.getFloat(TipUtils.BILL_TOTAL_KEY_MAIN, 0.00f);
 
-                if (billTotalStr.equals("")) {
+                if (!NumberUtils.isParsable(billTotalStr)) {
                     billTotal = 0.0f;
                 } else {
                     billTotal = Double.valueOf(billTotalStr);
@@ -119,7 +101,8 @@ public class MainActivity extends AppCompatActivity {
 
                 String tipPercentageStr = editable.toString();
 
-                if (tipPercentageStr.equals("")) {
+
+                if (!NumberUtils.isParsable(tipPercentageStr)) {
                     tipPercentage = 0.00f;
                 } else {
                     tipPercentage = Double.valueOf(tipPercentageStr);
@@ -157,10 +140,10 @@ public class MainActivity extends AppCompatActivity {
 
                 String numPeopleStr = editable.toString();
 
-                if (numPeopleStr.equals("")) {
+                if (!NumberUtils.isParsable(numPeopleStr)) {
                     numPeople = 1;
                 } else {
-                    numPeople = Integer.valueOf(editable.toString());
+                    numPeople = Long.valueOf(editable.toString());
                 }
 
                 prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, (float) numPeople);
@@ -181,15 +164,22 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         super.onResume();
 
+        initializeValues();
+        bindValues();
+    }
+
+    public void initializeValues() {
         billTotal = TipUtils.roundToTwoDecPlaces((double)sharedPreferences.getFloat(TipUtils.BILL_TOTAL_KEY_MAIN, 0.00f), 2);
         tipPercentage = TipUtils.roundToTwoDecPlaces((double) sharedPreferences.getFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, 0.00f), 2);
-        numPeople = (int) sharedPreferences.getFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, 1.00f);
+        numPeople = (long) sharedPreferences.getFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, 1.00f);
 
         tipTotal = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTipTotal(billTotal, tipPercentage), 2);
         grandTotal = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTotalWithTip(billTotal, tipPercentage), 2);
         totalPerPerson = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTotalPerPerson(billTotal, tipPercentage, numPeople), 2);
         tipPerPerson = TipUtils.roundToTwoDecPlaces(TipUtils.calculateTipPerPerson(billTotal, tipPercentage, numPeople), 2);
+    }
 
+    public void bindValues() {
         binding.billEditMain.setText(String.format("%.2f", billTotal));
         binding.tipPctEditMain.setText(String.format("%.2f", tipPercentage));
         binding.numPeopleEditMain.setText(String.valueOf(numPeople));

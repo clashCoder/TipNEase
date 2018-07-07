@@ -64,7 +64,7 @@ public class TipUtils {
         return billTotal + tipTotal;
     }
 
-    public static double calculateTotalPerPerson(double billTotal, double tipPercentage, int numPeople) {
+    public static double calculateTotalPerPerson(double billTotal, double tipPercentage, long numPeople) {
 
         if (numPeople == 0)
             return 0;
@@ -74,7 +74,7 @@ public class TipUtils {
         return roundToTwoDecPlaces(total / numPeople, 2);
     }
 
-    public static double calculateTipPerPerson(double billTotal, double tipPercentage, int numPeople) {
+    public static double calculateTipPerPerson(double billTotal, double tipPercentage, long numPeople) {
 
         if (numPeople == 0)
             return 0;

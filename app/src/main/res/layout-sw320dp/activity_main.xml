@@ -33,6 +33,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
+            android:maxLength="15"
             android:background="@drawable/edit_border"
             android:hint="@string/bill_hint_text"
             android:inputType="numberDecimal"
@@ -62,6 +64,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
+            android:maxLength="15"
             android:background="@drawable/edit_border"
             android:hint="@string/tip_pct_hint_text"
             android:inputType="numberDecimal"
@@ -91,8 +95,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:background="@drawable/non_edit_border"
             android:textColor="@color/white"
+            android:textSize="16sp"
             tools:text="0.0" />
 
     </LinearLayout>
@@ -116,8 +122,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:background="@drawable/non_edit_border"
             android:textColor="@color/white"
+            android:textSize="16sp"
             tools:text="0.0" />
 
     </LinearLayout>
@@ -142,6 +150,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
+            android:maxLength="15"
             android:background="@drawable/edit_border"
             android:hint="@string/num_people_hint_text"
             android:inputType="number"
@@ -171,8 +181,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:background="@drawable/non_edit_border"
             android:textColor="@color/white"
+            android:textSize="16sp"
             tools:text="0.0" />
 
     </LinearLayout>
@@ -195,8 +207,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:background="@drawable/non_edit_border"
             android:textColor="@color/white"
+            android:textSize="16sp"
             tools:text="0.0" />
 
     </LinearLayout>

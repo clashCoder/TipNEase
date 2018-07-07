@@ -64,7 +64,7 @@ public class TipWidget extends AppWidgetProvider {
 
         double billTotal = TipUtils.roundToTwoDecPlaces((double)sharedPreferences.getFloat(TipUtils.BILL_TOTAL_KEY, 0.00f), 2);
         double tipPercentage = TipUtils.roundToTwoDecPlaces((double)sharedPreferences.getFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.00f), 2);
-        int numPeople = (int) sharedPreferences.getFloat(TipUtils.NUM_PEOPLE_KEY, 1.00f);
+        long numPeople = (long) sharedPreferences.getFloat(TipUtils.NUM_PEOPLE_KEY, 1.00f);
 
         double tipTotal = TipUtils.calculateTipTotal(billTotal, tipPercentage);
         double totalWithTip = TipUtils.calculateTotalWithTip(billTotal, tipPercentage);
@@ -220,7 +220,7 @@ public class TipWidget extends AppWidgetProvider {
         float tipPercentage = sp.getFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.0f);
         float tipTotal = sp.getFloat(TipUtils.TIP_TOTAL_KEY, 0.0f);
         float totalWithTip = sp.getFloat(TipUtils.TOTAL_WITH_TIP_KEY, 0.0f);
-        int numPeople = (int) sp.getFloat(TipUtils.NUM_PEOPLE_KEY, 1.0f);
+        long numPeople = (long) sp.getFloat(TipUtils.NUM_PEOPLE_KEY, 1.0f);
         float totalPerPerson = sp.getFloat(TipUtils.TOTAL_PER_PERSON_KEY, 0.0f);
         float tipPerPerson = sp.getFloat(TipUtils.TIP_PER_PERSON_KEY, 0.0f);
 

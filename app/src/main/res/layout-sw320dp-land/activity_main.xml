@@ -41,7 +41,8 @@
                 android:text="@string/bill_default_text"
                 android:textColor="@color/white"
                 android:inputType="numberDecimal"
-                android:gravity="center"/>
+                android:gravity="center"
+                android:imeOptions="actionDone" />
 
         </LinearLayout>
 
@@ -69,7 +70,8 @@
                 android:text="@string/tip_pct_default_text"
                 android:textColor="@color/white"
                 android:inputType="numberDecimal"
-                android:gravity="center" />
+                android:gravity="center"
+                android:imeOptions="actionDone" />
 
         </LinearLayout>
 
@@ -98,7 +100,8 @@
                 android:textColor="@color/white"
                 android:textColorHint="@color/white"
                 android:inputType="number"
-                android:gravity="center" />
+                android:gravity="center"
+                android:imeOptions="actionDone" />
 
         </LinearLayout>
 
