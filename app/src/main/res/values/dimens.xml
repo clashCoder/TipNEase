@@ -10,6 +10,6 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="total_row_margin">18dp</dimen>
 
     <dimen name="label_font_size">14sp</dimen>
-    <dimen name="hint_font_size">14sp</dimen>
+    <dimen name="hint_font_size">24sp</dimen>
 
 </resources>

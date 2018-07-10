@@ -27,6 +27,7 @@ public class TipWidget extends AppWidgetProvider {
     private static final String DECREMENT_TIP_PERCENTAGE = "com.github.clashcoder.decrement_tip_percentage";
     private static final String INCREMENT_NUM_PEOPLE = "com.github.clashcoder.increment_num_people";
     private static final String DECREMENT_NUM_PEOPLE = "com.github.clashcoder.decrement_num_people";
+    private static final String REFRESH = "com.github.clashcoder.refresh";
 
 //    private static final String BILL_TOTAL_KEY = "bill_total";
 //    private static final String TIP_PERCENTAGE_KEY = "tip_percentage";
@@ -63,7 +64,7 @@ public class TipWidget extends AppWidgetProvider {
 
         double billTotal = TipUtils.roundToTwoDecPlaces((double)sharedPreferences.getFloat(TipUtils.BILL_TOTAL_KEY, 0.00f), 2);
         double tipPercentage = TipUtils.roundToTwoDecPlaces((double)sharedPreferences.getFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.00f), 2);
-        int numPeople = (int) sharedPreferences.getFloat(TipUtils.NUM_PEOPLE_KEY, 1.00f);
+        long numPeople = (long) sharedPreferences.getFloat(TipUtils.NUM_PEOPLE_KEY, 1.00f);
 
         double tipTotal = TipUtils.calculateTipTotal(billTotal, tipPercentage);
         double totalWithTip = TipUtils.calculateTotalWithTip(billTotal, tipPercentage);
@@ -137,38 +138,51 @@ public class TipWidget extends AppWidgetProvider {
         if (intent.getAction().equals(INCREMENT_BILL_TOTAL)) {
 
             prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, currentBill + 0.01f);
+            prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY_MAIN, currentBill + 0.01f);
 
         } else if (intent.getAction().equals(DECREMENT_BILL_TOTAL)) {
 
             if (currentBill >= 0.01f) {
                 prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, currentBill - 0.01f);
+                prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY_MAIN, currentBill - 0.01f);
             } else {
-                prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, 0.0f);
+                prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, 0.00f);
+                prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY_MAIN, 0.00f);
             }
 
         } else if (intent.getAction().equals(INCREMENT_TIP_PERCENTAGE)) {
 
             prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, currentTipPct + 0.01f);
+            prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, currentTipPct + 0.01f);
 
         } else if (intent.getAction().equals(DECREMENT_TIP_PERCENTAGE)) {
 
             if (currentTipPct >= 0.01f) {
                 prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, currentTipPct - 0.01f);
+                prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, currentTipPct - 0.01f);
             } else {
-                prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.0f);
+                prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.00f);
+                prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY_MAIN, 0.00f);
             }
 
         } else if (intent.getAction().equals(INCREMENT_NUM_PEOPLE)) {
 
             prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, currentNumPeople + 1.0f);
+            prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, currentNumPeople + 1.0f);
 
         } else if (intent.getAction().equals(DECREMENT_NUM_PEOPLE)) {
 
             if (currentNumPeople >= 2.0f) {
                 prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, currentNumPeople - 1.0f);
+                prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, currentNumPeople - 1.0f);
             } else {
                 prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, 1.0f);
+                prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY_MAIN, 1.0f);
             }
+        } else if (intent.getAction().equals(REFRESH)) {
+            prefEditor.putFloat(TipUtils.BILL_TOTAL_KEY, currentBill);
+            prefEditor.putFloat(TipUtils.TIP_PERCENTAGE_KEY, currentTipPct);
+            prefEditor.putFloat(TipUtils.NUM_PEOPLE_KEY, currentNumPeople);
         }
 
         prefEditor.commit();
@@ -200,13 +214,13 @@ public class TipWidget extends AppWidgetProvider {
     private static ArrayList<String> getPreferenceValues(Context context, Map<String, Float> sharedKeyValues) {
         ArrayList<String> prefValues = new ArrayList<>();
 
-        SharedPreferences sp = context.getSharedPreferences(SHARED_PREF_FILE, 0);
+        SharedPreferences sp = context.getSharedPreferences(TipUtils.SHARED_PREF_FILE, 0);
 
         float billTotal = sp.getFloat(TipUtils.BILL_TOTAL_KEY, 0.0f);
         float tipPercentage = sp.getFloat(TipUtils.TIP_PERCENTAGE_KEY, 0.0f);
         float tipTotal = sp.getFloat(TipUtils.TIP_TOTAL_KEY, 0.0f);
         float totalWithTip = sp.getFloat(TipUtils.TOTAL_WITH_TIP_KEY, 0.0f);
-        int numPeople = (int) sp.getFloat(TipUtils.NUM_PEOPLE_KEY, 1.0f);
+        long numPeople = (long) sp.getFloat(TipUtils.NUM_PEOPLE_KEY, 1.0f);
         float totalPerPerson = sp.getFloat(TipUtils.TOTAL_PER_PERSON_KEY, 0.0f);
         float tipPerPerson = sp.getFloat(TipUtils.TIP_PER_PERSON_KEY, 0.0f);
 
@@ -247,6 +261,8 @@ public class TipWidget extends AppWidgetProvider {
         intent.setAction(DECREMENT_NUM_PEOPLE);
         remoteViews.setOnClickPendingIntent(R.id.num_people_decrement_btn, PendingIntent.getBroadcast(context, shifttedAppWidgetId + 5, intent, 0));
 
+        intent.setAction(REFRESH);
+        remoteViews.setOnClickPendingIntent(R.id.button_refresh, PendingIntent.getBroadcast(context, shifttedAppWidgetId + 6, intent, 0));
 
     }
 }

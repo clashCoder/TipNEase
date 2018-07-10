@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -32,12 +33,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
+            android:maxLength="15"
             android:background="@drawable/edit_border"
             android:hint="@string/bill_hint_text"
             android:inputType="numberDecimal"
             android:textColor="@color/editLabelColor"
             android:textColorHint="#FFF"
-            android:textSize="@dimen/hint_font_size" />
+            android:textSize="@dimen/hint_font_size"
+            android:imeOptions="actionDone" />
 
     </LinearLayout>
 
@@ -60,12 +64,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
+            android:maxLength="15"
             android:background="@drawable/edit_border"
             android:hint="@string/tip_pct_hint_text"
             android:inputType="numberDecimal"
             android:textColor="#FFF"
             android:textColorHint="#FFF"
-            android:textSize="@dimen/hint_font_size" />
+            android:textSize="@dimen/hint_font_size"
+            android:imeOptions="actionDone" />
 
     </LinearLayout>
 
@@ -88,8 +95,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:background="@drawable/non_edit_border"
             android:textColor="@color/white"
+            android:textSize="16sp"
             tools:text="0.0" />
 
     </LinearLayout>
@@ -113,8 +122,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:background="@drawable/non_edit_border"
             android:textColor="@color/white"
+            android:textSize="16sp"
             tools:text="0.0" />
 
     </LinearLayout>
@@ -139,12 +150,15 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
+            android:maxLength="15"
             android:background="@drawable/edit_border"
             android:hint="@string/num_people_hint_text"
-            android:inputType="numberDecimal"
+            android:inputType="number"
             android:textColor="#FFF"
             android:textColorHint="#FFF"
-            android:textSize="@dimen/hint_font_size" />
+            android:textSize="@dimen/hint_font_size"
+            android:imeOptions="actionDone" />
 
     </LinearLayout>
 
@@ -167,8 +181,10 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:background="@drawable/non_edit_border"
             android:textColor="@color/white"
+            android:textSize="16sp"
             tools:text="0.0" />
 
     </LinearLayout>
@@ -191,9 +207,12 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="3"
+            android:gravity="center"
             android:background="@drawable/non_edit_border"
             android:textColor="@color/white"
+            android:textSize="16sp"
             tools:text="0.0" />
 
     </LinearLayout>
 </LinearLayout>
+</layout>
